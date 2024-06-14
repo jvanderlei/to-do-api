@@ -41,9 +41,9 @@ class TaskUseCaseImpl(TaskUseCase):
         try:
             task_status = TaskStatus(
                 task_status_id=1,
-                task_status_name="pending"
+                task_status_name="Pending"
             )
-            task = Task(task_id=0, task_name=data.task_name, task_description=data.task_description, task_status=task_status, task_due_to=data.task_due_to)
+            task = Task(task_id=None, task_name=data.task_name, task_description=data.task_description, task_status=task_status, task_due_to=data.task_due_to)
 
             created_task = self.task_repository.create_task(task)
             if created_task:

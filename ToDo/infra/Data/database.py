@@ -13,7 +13,7 @@ engine = create_engine(connection_string, echo=True)
 
 SessionLocal = sessionmaker(
     bind=engine,
-    autocommit=True,
+    autocommit=False,
     autoflush=False,
 )
 
