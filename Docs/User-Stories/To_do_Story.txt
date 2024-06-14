@@ -1,0 +1,5 @@
+ - User wants to be able to create a Todo task
+ - User wants to be able to update specific tasks
+ - User wants to be able to delete specific tasks
+ - User wants to list all of his tasks
+ - User wants to be able to mark tasks as completed

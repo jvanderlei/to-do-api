@@ -3,17 +3,17 @@ import os
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker
 
-from infra.Data.DTO.Base import Base
+from infra.Data.Base import Base
 
 load_dotenv()
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 
 connection_string = os.getenv("connection_string")
 engine = create_engine(connection_string, echo=True)
 
 SessionLocal = sessionmaker(
     bind=engine,
-    autocommit=False,
+    autocommit=True,
     autoflush=False,
 )
 

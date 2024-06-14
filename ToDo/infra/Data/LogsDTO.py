@@ -3,7 +3,7 @@ from datetime import datetime
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from infra.Data.DTO.Base import Base
+from infra.Data.Base import Base
 
 
 class LogsDTO(Base):
