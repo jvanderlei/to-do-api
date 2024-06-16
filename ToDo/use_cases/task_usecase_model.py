@@ -12,7 +12,7 @@ class TaskReadModel(OrmBaseModel):
     task_id: int = Field(example=345)
     task_name: str = Field(example="Study DDD")
     task_description: str = Field(example="Study the Domain Driven Design book")
-    task_status_name: str = Field(example="Peding")
+    task_status_name: str = Field(example="Pending")
     task_due_to: datetime = Field(example="2024-06-15")
 
     @staticmethod
@@ -42,6 +42,10 @@ class TaskUpdateModel(OrmBaseModel):
     task_description: str = Field(example="Study the Domain Driven Design book")
     task_status_id: int = Field(ge=1, example=3)
     task_due_to: datetime = Field(example="2024-06-15")
+
+
+
+
 
 
 

@@ -18,11 +18,14 @@ class TaskRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def update_task(self, task: Task) -> Optional[Task]:
+    def update_task(self, task_id: int, task: Task) -> Optional[Task]:
         raise NotImplementedError
 
     @abstractmethod
     def get_task_list(self) -> Optional[list[Task]]:
         raise NotImplementedError
 
+    @abstractmethod
+    def find_status_by_id(self, status_id: int) -> Optional[Task]:
+        raise NotImplementedError
 

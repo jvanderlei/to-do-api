@@ -5,7 +5,9 @@ from sqlalchemy.orm import Session
 
 from domain.Entities.Task import Task
 from domain.Interfaces.TaskRepository import TaskRepository
+from domain.ValueObjects.TaskStatus import TaskStatus
 from infra.Data.TaskDTO import TaskDTO
+from infra.Data.TaskStatusDTO import TaskStatusDTO
 
 
 class TaskRepositoryImpl(TaskRepository):
@@ -48,7 +50,7 @@ class TaskRepositoryImpl(TaskRepository):
             print(f"Error deleting task: {e}")
             return None
 
-    def update_task(self, task: Task) -> Optional[Task]:
+    def update_task(self, task_id: int, task: Task) -> Optional[Task]:
         try:
             task_dto = self.session.query(TaskDTO).filter_by(task_id=task.task_id).one()
             task_dto.task_name = task.task_name
@@ -72,3 +74,12 @@ class TaskRepositoryImpl(TaskRepository):
             print(f"Error retrieving task list: {e}")
             return None
 
+    def find_status_by_id(self, status_id: int) -> Optional[TaskStatus]:
+        try:
+            status_dto = self.session.query(TaskStatusDTO).filter_by(task_status_id=status_id).one()
+            return status_dto.to_entity()
+        except NoResultFound:
+            return None
+        except Exception as e:
+            print(f"Error finding task by ID: {e}")
+            return None
